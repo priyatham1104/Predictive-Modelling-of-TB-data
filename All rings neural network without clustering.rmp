@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.2.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.2.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="9.2.000" expanded="true" height="68" name="Retrieve final_file_1" width="90" x="45" y="136">
+        <parameter key="repository_entry" value="//Local Repository/data/final_file_1"/>
+      </operator>
+      <operator activated="true" class="shuffle" compatibility="9.2.000" expanded="true" height="82" name="Shuffle" width="90" x="179" y="136">
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.2.000" expanded="true" height="82" name="Select Attributes" width="90" x="246" y="289">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="timestep|W00000001|W00000002|W00000003|W00000004|W00000005|W00000006|W00000007|W00000031|W00000032|W00000039|W00000040|W00000041|W00000042|W00000043|W00000044|W01000001|W01000006|W01000007|W01000008|W01000020|W01000021|W01000022|W01000030|W01000031|W01000032|W01000033|W01000034|W01000035|W01000036|W01000103|W01000203|W01000606|W01000607|W01000608|W01000620|W01000621|W01000622|W01000630|W01000631|W01000632|W01000633|W01000634|W01000635|W01000636|W11010101|W11010103|W11020001|W11030201|W11030701|W12010002|W12010013|W12010027|W12010102|W12010202|W12020001|W12020004|W12020005|W12020008|W12020015|W12020025|W12020100|W12020101|W12020102|W12020103|W12020107|W12020108|W12020109|W12020110|W12020115|W12020116|W12020119|W12050101|W13010003|W13010004|W13010005|W13010006|W13010007|W13010032|W13010033|W13010039|W13010049|W13010060|W13010069|W13010090|W13010093|W13010096|W13010097|W13010102|W13010103|W13010104|W13010105|W13010106|W13010202|W13010203|W13010204|W13010205|W13010206|W13010302|W13010303|W13010304|W13010305|W13010306|W13010402|W13010403|W13010404|W13010405|W13010406|W13010502|W13010503|W13010504|W13010505|W13010506|W13010602|W13010603|W13010604|W13010605|W13010606|W13010702|W13010703|W13010704|W13010705|W13010706|W13010802|W13010803|W13010804|W13010805|W13010806|W13010902|W13010903|W13010904|W13010905|W13010906|W13011002|W13011003|W13011004|W13011006|W13011102|W13011103|W13011104|W13011105|W13011106|W14010001|W14010021|W14010022|W14010023|W14010024|W14010025|W14010101|W14010102|W14010103|W14010201|W14010202|W14010203|W14010301|W14010302|W14010303|W14030041|W14030042|W15000101|W15000102|W15000105|W15000107|W15000108|W15000110|W15000197|W15000198|W15000199|W15000200|W15018001|W15018103|W15018202|W15018203|W15018302|W15018303|W15018402|W15018403|W15018502|W15018503|W15018602|W15018603|W16010002|W17010101|W17010106|W17010201|W17010206|W18020003|W18020005|W18020009|W18020011|W18020014|W18020021|W18020041|W18020042|W18030003|W18030007|W18030008|W18030009|W18030010|W18030101|W18030102|W18030104|W18030105|W18030107|W18030108|W18030110|W18030111|W18030113|W18030114|W18030116|W18030117|W18030119|W18030120|W18030180|W18030301|W18030302|W18030304|W18030305|W18030307|W18030308|W18030310|W18030311|W18030313|W18030314|W18030316|W18030317|W18030319|W18030320|W18030380|W19010003|W19010015|W19020201|W19020202|W19020203|W19020204|W19020302|W19060102|W19060202|W20010020|W21010001|W21010002|W21010003|W21010004|W21010005|W21010006|W21010007|W21010008|W21010009|W21010032|W21010036|W21010042|W21010047|W21010152|W21010154|W21010172|W21010174|W21020301|W21020302|W21020303|W21020304|W21020305|W21020306|W21020501|W21020502|W21020503|W21020504|W21030002|W21030003|W21030005|W21030006|W21030007|W21030008|W21030101|W21030102|W21030201|W21030202|W21030301|W21030303|W21030401|W21040301|W21040401|W23010001|W23010027|W23010036|W23010037|W23010101|W23010104|W23010126|W23010226|W23010301|W23010304|W23010326|W23010401|W23010404|W23010426|W23010501|W23010504|W23010526|W23010601|W23010604|W23010626|W23010726|W23010801|W23010804|W23010826|W25010016|W25020604|W25020605|W26020102|W26020105|W26020202|W26020205|W27000102|W27000202|W27000204|W27010101|W27010102|W27010103|W27010104|W27010201|W27010202|W27010203|W27010204|W27010301|W27010302|W27010303|W27010304|W27020101|W27020102|W27020103|W27020104|W27020201|W27020202|W27020203|W27020204|W27020301|W27020302|W27020303|W27020304|W27020401|W27020402|W27020403|W27020404"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="normalize" compatibility="9.2.000" expanded="true" height="103" name="Normalize" width="90" x="313" y="34">
+        <parameter key="return_preprocessing_model" value="false"/>
+        <parameter key="create_view" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="numeric"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="real"/>
+        <parameter key="block_type" value="value_series"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_series_end"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="method" value="Z-transformation"/>
+        <parameter key="min" value="0.0"/>
+        <parameter key="max" value="1.0"/>
+        <parameter key="allow_negative_values" value="false"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.2.000" expanded="true" height="103" name="Multiply" width="90" x="380" y="187"/>
+      <operator activated="true" class="filter_example_range" compatibility="9.2.000" expanded="true" height="82" name="Filter Example Range" width="90" x="581" y="136">
+        <parameter key="first_example" value="1"/>
+        <parameter key="last_example" value="5266"/>
+        <parameter key="invert_filter" value="false"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.2.000" expanded="true" height="82" name="Multiply (3)" width="90" x="715" y="187"/>
+      <operator activated="true" class="neural_net" compatibility="9.2.000" expanded="true" height="82" name="Neural Net" width="90" x="715" y="85">
+        <list key="hidden_layers">
+          <parameter key="first hidden layer" value="10"/>
+        </list>
+        <parameter key="training_cycles" value="200"/>
+        <parameter key="learning_rate" value="0.01"/>
+        <parameter key="momentum" value="0.9"/>
+        <parameter key="decay" value="false"/>
+        <parameter key="shuffle" value="true"/>
+        <parameter key="normalize" value="true"/>
+        <parameter key="error_epsilon" value="1.0E-4"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="filter_example_range" compatibility="9.2.000" expanded="true" height="82" name="Filter Example Range (2)" width="90" x="581" y="289">
+        <parameter key="first_example" value="5267"/>
+        <parameter key="last_example" value="7021"/>
+        <parameter key="invert_filter" value="false"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.2.000" expanded="true" height="124" name="Multiply (2)" width="90" x="849" y="34"/>
+      <operator activated="true" class="apply_model" compatibility="9.2.000" expanded="true" height="82" name="Apply Model (2)" width="90" x="983" y="187">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_regression" compatibility="9.2.000" expanded="true" height="82" name="Performance (2)" width="90" x="1184" y="187">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="root_mean_squared_error" value="true"/>
+        <parameter key="absolute_error" value="true"/>
+        <parameter key="relative_error" value="true"/>
+        <parameter key="relative_error_lenient" value="true"/>
+        <parameter key="relative_error_strict" value="true"/>
+        <parameter key="normalized_absolute_error" value="true"/>
+        <parameter key="root_relative_squared_error" value="true"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="prediction_average" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.2.000" expanded="true" height="82" name="Apply Model" width="90" x="983" y="85">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_regression" compatibility="9.2.000" expanded="true" height="82" name="Performance" width="90" x="1184" y="85">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="root_mean_squared_error" value="true"/>
+        <parameter key="absolute_error" value="true"/>
+        <parameter key="relative_error" value="true"/>
+        <parameter key="relative_error_lenient" value="true"/>
+        <parameter key="relative_error_strict" value="true"/>
+        <parameter key="normalized_absolute_error" value="true"/>
+        <parameter key="root_relative_squared_error" value="true"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="prediction_average" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <connect from_op="Retrieve final_file_1" from_port="output" to_op="Shuffle" to_port="example set input"/>
+      <connect from_op="Shuffle" from_port="example set output" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Select Attributes" from_port="example set output" to_op="Normalize" to_port="example set input"/>
+      <connect from_op="Normalize" from_port="example set output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Filter Example Range" to_port="example set input"/>
+      <connect from_op="Multiply" from_port="output 2" to_op="Filter Example Range (2)" to_port="example set input"/>
+      <connect from_op="Filter Example Range" from_port="example set output" to_op="Neural Net" to_port="training set"/>
+      <connect from_op="Filter Example Range" from_port="original" to_op="Multiply (3)" to_port="input"/>
+      <connect from_op="Multiply (3)" from_port="output 1" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Neural Net" from_port="model" to_op="Multiply (2)" to_port="input"/>
+      <connect from_op="Filter Example Range (2)" from_port="example set output" to_op="Apply Model (2)" to_port="unlabelled data"/>
+      <connect from_op="Multiply (2)" from_port="output 1" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Multiply (2)" from_port="output 2" to_op="Apply Model (2)" to_port="model"/>
+      <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Performance (2)" to_port="labelled data"/>
+      <connect from_op="Apply Model (2)" from_port="model" to_op="Performance (2)" to_port="performance"/>
+      <connect from_op="Performance (2)" from_port="performance" to_port="result 3"/>
+      <connect from_op="Performance (2)" from_port="example set" to_port="result 4"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+      <connect from_op="Apply Model" from_port="model" to_port="result 2"/>
+      <connect from_op="Performance" from_port="performance" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+    </process>
+  </operator>
+</process>

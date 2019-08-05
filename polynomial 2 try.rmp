@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.2.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.2.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="9.2.000" expanded="true" height="68" name="Retrieve new file 600 without transpose (3)" width="90" x="380" y="238">
+        <parameter key="repository_entry" value="//Local Repository/new file 600 without transpose"/>
+      </operator>
+      <operator activated="true" class="filter_example_range" compatibility="9.2.000" expanded="true" height="82" name="Filter Example Range (3)" width="90" x="514" y="238">
+        <parameter key="first_example" value="1"/>
+        <parameter key="last_example" value="741"/>
+        <parameter key="invert_filter" value="false"/>
+      </operator>
+      <operator activated="true" class="polynomial_regression" compatibility="9.2.000" expanded="true" height="82" name="Polynomial Regression" width="90" x="648" y="238">
+        <parameter key="max_iterations" value="5000"/>
+        <parameter key="replication_factor" value="1"/>
+        <parameter key="max_degree" value="1"/>
+        <parameter key="min_coefficient" value="-100.0"/>
+        <parameter key="max_coefficient" value="100.0"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="9.2.000" expanded="true" height="68" name="Retrieve new file 600 without transpose (2)" width="90" x="380" y="340">
+        <parameter key="repository_entry" value="//Local Repository/new file 600 without transpose"/>
+      </operator>
+      <operator activated="true" class="filter_example_range" compatibility="9.2.000" expanded="true" height="82" name="Filter Example Range (2)" width="90" x="514" y="340">
+        <parameter key="first_example" value="1"/>
+        <parameter key="last_example" value="741"/>
+        <parameter key="invert_filter" value="false"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="9.2.000" expanded="true" height="82" name="Multiply" width="90" x="782" y="136"/>
+      <operator activated="true" class="apply_model" compatibility="9.2.000" expanded="true" height="82" name="Apply Model (3)" width="90" x="849" y="289">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="performance_regression" compatibility="9.2.000" expanded="true" height="82" name="Performance (3)" width="90" x="983" y="85">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="root_mean_squared_error" value="true"/>
+        <parameter key="absolute_error" value="false"/>
+        <parameter key="relative_error" value="false"/>
+        <parameter key="relative_error_lenient" value="false"/>
+        <parameter key="relative_error_strict" value="false"/>
+        <parameter key="normalized_absolute_error" value="false"/>
+        <parameter key="root_relative_squared_error" value="false"/>
+        <parameter key="squared_error" value="false"/>
+        <parameter key="correlation" value="false"/>
+        <parameter key="squared_correlation" value="false"/>
+        <parameter key="prediction_average" value="false"/>
+        <parameter key="spearman_rho" value="false"/>
+        <parameter key="kendall_tau" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <connect from_op="Retrieve new file 600 without transpose (3)" from_port="output" to_op="Filter Example Range (3)" to_port="example set input"/>
+      <connect from_op="Filter Example Range (3)" from_port="example set output" to_op="Polynomial Regression" to_port="training set"/>
+      <connect from_op="Polynomial Regression" from_port="model" to_op="Multiply" to_port="input"/>
+      <connect from_op="Retrieve new file 600 without transpose (2)" from_port="output" to_op="Filter Example Range (2)" to_port="example set input"/>
+      <connect from_op="Filter Example Range (2)" from_port="example set output" to_op="Apply Model (3)" to_port="unlabelled data"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Apply Model (3)" to_port="model"/>
+      <connect from_op="Apply Model (3)" from_port="labelled data" to_op="Performance (3)" to_port="labelled data"/>
+      <connect from_op="Performance (3)" from_port="performance" to_port="result 1"/>
+      <connect from_op="Performance (3)" from_port="example set" to_port="result 2"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+    </process>
+  </operator>
+</process>
